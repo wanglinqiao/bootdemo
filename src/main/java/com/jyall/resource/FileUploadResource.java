@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.websocket.server.PathParam;
@@ -58,13 +59,15 @@ public class FileUploadResource {
         }
     }
 
+    @ApiIgnore
     @RequestMapping(value = "/toUpload",method = RequestMethod.GET)
-    private String toUpload(){
+    public String toUpload(){
         return "/file";
     }
 
+    @ApiIgnore
     @RequestMapping(value = "/batch/toUpload",method = RequestMethod.GET)
-    private String toUploads(){ return  "/mutifile";}
+    public String toUploads(){ return  "/mutifile";}
 
 
     @POST
