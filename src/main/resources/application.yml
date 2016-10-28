@@ -6,4 +6,6 @@ spring:
     username: root
     password: root
 
-
+#È¥µôthymeleaf»º´æ
+  thymeleaf:
+    cache: false
