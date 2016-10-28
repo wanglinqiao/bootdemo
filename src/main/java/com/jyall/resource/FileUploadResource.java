@@ -1,5 +1,6 @@
 package com.jyall.resource;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -15,6 +16,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.websocket.server.PathParam;
+import javax.ws.rs.HttpMethod;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,13 +31,15 @@ import java.util.UUID;
  * Created by wang.linqiao on 2016/10/20.
  */
 @Controller
+@Api(description = "上传文件相关接口")
 public class FileUploadResource {
 
     private Logger logger = LoggerFactory.getLogger(FileUploadResource.class);
 
+    @POST
     @ApiOperation(value ="上传单个文件",notes = "")
     @ApiImplicitParam(name = "file",value = "要上传的文件",required = true,dataType = "File.class")
-    @RequestMapping("/upload")
+    @RequestMapping(value = "/upload",method = RequestMethod.POST)
     @ResponseBody
     public String upload(@PathParam(value = "file")MultipartFile file){
         try {
@@ -51,15 +58,18 @@ public class FileUploadResource {
         }
     }
 
-    @RequestMapping("/toUpload")
-    public String toUpload(){
+    @RequestMapping(value = "/toUpload",method = RequestMethod.GET)
+    private String toUpload(){
         return "/file";
     }
 
-    @RequestMapping("/batch/toUpload")
-    public String toUploads(){ return  "/mutifile";}
+    @RequestMapping(value = "/batch/toUpload",method = RequestMethod.GET)
+    private String toUploads(){ return  "/mutifile";}
 
+
+    @POST
     @RequestMapping(value = "/batch/upload",method = RequestMethod.POST)
+    @ApiOperation(value = "上传多个文件",notes = "上传多个文件")
     @ResponseBody
     public String uploads(HttpServletRequest request){
         List<MultipartFile> files=((MultipartHttpServletRequest)request).getFiles("file");
