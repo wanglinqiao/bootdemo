@@ -1,5 +1,6 @@
 package com.jyall.resource;
 
+import com.jyall.common.Constans;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class PageResource {
     public String toHome(Model model){
         model.addAttribute("welcome","欢迎光临本店！");
         model.addAttribute("today", Calendar.getInstance());
+        model.addAttribute("productSortMap", Constans.PRODUCT_SORT_MAP);
         return "/home";
     }
 }

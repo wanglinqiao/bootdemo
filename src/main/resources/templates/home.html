@@ -41,15 +41,18 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">商品列表<strong
                                         class="caret"></strong></a>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#">手机</a>
+                                    <li th:each="dict:${productSortMap}">
+                                        <a href="#" th:text="${dict.value}">***</a>
                                     </li>
-                                    <li>
-                                        <a href="#">电脑</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">服装</a>
-                                    </li>
+                                    <!--<li>-->
+                                    <!--<a href="#">手机</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                    <!--<a href="#">电脑</a>-->
+                                    <!--</li>-->
+                                    <!--<li>-->
+                                    <!--<a href="#">服装</a>-->
+                                    <!--</li>-->
                                     <li class="divider">
                                     </li>
                                     <li>

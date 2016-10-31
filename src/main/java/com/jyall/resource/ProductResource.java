@@ -1,5 +1,6 @@
 package com.jyall.resource;
 
+import com.jyall.common.Constans;
 import com.jyall.pojo.Product;
 import com.jyall.service.ProductService;
 import io.swagger.annotations.Api;
@@ -32,6 +33,7 @@ public class ProductResource {
         try {
             List<Product> productList = productService.getProductList(null);
             model.addAttribute("productList",productList);
+
             return "/product/product_list";
         }catch (Exception e){
             logger.error("获取用户列表失败",e);
