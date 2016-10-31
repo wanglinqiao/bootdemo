@@ -10,6 +10,7 @@ public class Product {
     private double price;
     private String description;
     private String pic;
+    private String type;
 
     public String getId() {
         return id;
@@ -57,5 +58,13 @@ public class Product {
 
     public void setPic(String pic) {
         this.pic = pic;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
