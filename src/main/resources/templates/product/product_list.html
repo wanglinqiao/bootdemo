@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        编号
+                    </th>
+                    <th>
+                        名称
+                    </th>
+                    <th>
+                        价格
+                    </th>
+                    <th>
+                        标题
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product:${productList}">
+                    <td th:text="${product.id}">
+                        1111
+                    </td>
+                    <td th:text="${product.name}">
+                        TB - Monthly
+                    </td>
+                    <td th:text="${product.title}">
+                        01/04/2012
+                    </td>
+                    <td th:text="${product.price}">
+                        Default
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

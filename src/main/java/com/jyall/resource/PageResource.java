@@ -3,6 +3,7 @@ package com.jyall.resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Calendar;
 
@@ -10,6 +11,7 @@ import java.util.Calendar;
  * Created by wang.linqiao on 2016/10/28.
  */
 @Controller
+@ApiIgnore
 public class PageResource {
     @RequestMapping("/")
     public String toHome(Model model){
