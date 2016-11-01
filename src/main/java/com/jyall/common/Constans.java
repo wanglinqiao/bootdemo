@@ -20,15 +20,15 @@ public class Constans {
 
     public static final Map<String, String> PRODUCT_SORT_MAP = new HashMap<>();
 
-    @PostConstruct
+    //    @PostConstruct
     public void init() {
         PRODUCT_SORT_MAP.clear();
         List<Dict> productSort = dictService.getDictByTypeCode("1");
         if (productSort != null && !productSort.isEmpty()) {
-          for (int i=0;i<productSort.size();i++) {
-              Dict dict = productSort.get(i);
-             PRODUCT_SORT_MAP.put(dict.getDict_id().toString(),dict.getContent());
-          }
+            for (int i = 0; i < productSort.size(); i++) {
+                Dict dict = productSort.get(i);
+                PRODUCT_SORT_MAP.put(dict.getId().toString(), dict.getContent());
+            }
         }
     }
 }

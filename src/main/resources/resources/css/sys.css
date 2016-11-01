@@ -1,0 +1,12 @@
+.searchtext{
+    width:100px;
+}
+div select{
+    width: 100px;
+}
+/*#selectPrice{*/
+    /*width: 100px;*/
+/*}*/
+.row .input-group [name="price"]{
+    width: 100px;
+}

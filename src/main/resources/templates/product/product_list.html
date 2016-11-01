@@ -5,43 +5,78 @@
     <title>Hello World!</title>
 </head>
 <body>
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>
-                        编号
-                    </th>
-                    <th>
-                        名称
-                    </th>
-                    <th>
-                        标题
-                    </th>
-                    <th>
-                        价格
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="product:${productList}">
-                    <td th:text="${product.id}">
-                        1111
-                    </td>
-                    <td th:text="${product.name}">
-                        TB - Monthly
-                    </td>
-                    <td th:text="${product.title}">
-                        01/04/2012
-                    </td>
-                    <td th:text="${product.price}">
-                        Default
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="row clearfix form-inline" style="margin-bottom: 10px">
+    <div class="col-md-3 column form-group">
+        <label class="form-group-addon">编号/名称</label>
+        <input class="form-control" type="text" id="idOrName" th:value="${idOrName}"/>
     </div>
+    <div class="col-md-3 column form-group">
+        <label class="form-group-addon">标题</label>
+        <input class="form-control" type="text" id="title" th:value="${title}"/>
+    </div>
+    <div class="col-md-3 column form-group">
+        <label class="form-group-addon">价格</label>
+        <select name="price" class="form-control" id="selectPrice">
+            <option value="">-请选择-</option>
+        </select>
+    </div>
+    <div class="col-md-3 column form-group">
+        <input type="button" class="btn btn-default" id="search" value="查询"/>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>
+                    编号
+                </th>
+                <th>
+                    名称
+                </th>
+                <th>
+                    标题
+                </th>
+                <th>
+                    价格
+                </th>
+            </tr>
+            </thead>
+            <tbody id="pList">
+            <tr th:each="product:${productList}" >
+                <td th:text="${product.id}">
+                    1111
+                </td>
+                <td th:text="${product.name}">
+                    TB - Monthly
+                </td>
+                <td th:text="${product.title}">
+                    01/04/2012
+                </td>
+                <td th:text="${product.price}">
+                    Default
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="application/javascript">
+    $(function () {
+        $("#search").click(function () {
+            var param = {
+                "idOrName": $("#idOrName").val(),
+                "title": $("#title").val(),
+                "price": $("#selectPrice").val()
+            }
+
+            $.post("/product/getProductList", param,function (data) {
+                $("#main").html(data);
+            })
+        })
+    })
+
+</script>
 </body>
 </html>

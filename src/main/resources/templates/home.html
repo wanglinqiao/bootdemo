@@ -4,6 +4,7 @@
 
 <head>
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/sys.css" rel="stylesheet"/>
     <script src="/js/jquery-1.11.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <title>虚拟商城</title>
@@ -271,7 +272,7 @@
 </div>
 <script type="application/javascript">
     function getAllProduct() {
-        $.get("/product/getProductList", function (data) {
+        $.get("/product/getProductList",function (data) {
             $("#main").html(data);
         })
     }

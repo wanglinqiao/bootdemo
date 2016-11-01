@@ -4,17 +4,17 @@ package com.jyall.pojo;
  * Created by wang.linqiao on 2016/10/31.
  */
 public class Dict {
-    private String dict_id;
+    private Integer id;
     private String typeCode;
     private String typeName;
     private String content;
 
-    public String getDict_id() {
-        return dict_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setDict_id(String dict_id) {
-        this.dict_id = dict_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTypeCode() {
